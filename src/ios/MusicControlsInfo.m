@@ -18,7 +18,7 @@
         [self setAlbum: [dictionary objectForKey:@"album"]];
         [self setTicker: [dictionary objectForKey:@"ticker"]];
         [self setCover: [dictionary objectForKey:@"cover"]];
-        [self setDuration: [[dictionary objectForKey:@"duration"] integerValue]];
+        [self setDuration: 30];
         
         NSLog(@"Thattt: %@",[dictionary objectForKey:@"elapsed"]);
          NSLog(@"Thattt Int: %@",[[dictionary objectForKey:@"elapsed"] integerValue]);
