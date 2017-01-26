@@ -39,8 +39,8 @@
         
         NSLog(@"#### now playing: ####");
         NSLog(@"Artist: %@",[musicControlsInfo artist];
-        NSLog(@"Duration: %i",duration);
-        NSLog(@"Elapsed: %i",elapsed);
+        NSLog(@"Duration: %@",duration);
+        NSLog(@"Elapsed: %@",elapsed);
         NSLog(@"PlaybackRate: %@",playbackRate);
         
         
