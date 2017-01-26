@@ -18,10 +18,10 @@
         [self setAlbum: [dictionary objectForKey:@"album"]];
         [self setTicker: [dictionary objectForKey:@"ticker"]];
         [self setCover: [dictionary objectForKey:@"cover"]];
-        [self setDuration: (int)[dictionary objectForKey:@"duration"]];
+        [self setDuration: [[dictionary objectForKey:@"duration"] integerValue]];
         
         NSLog(@"Thattt: %@",[dictionary objectForKey:@"duration"]);
-        NSLog(@"Thattt Int: %d",(int)[dictionary objectForKey:@"duration"]);
+         NSLog(@"Thattt Int: %li",[[dictionary objectForKey:@"duration"] integerValue]);
         
         [self setElapsed: (int)[dictionary objectForKey:@"elapsed"]];
         [self setIsPlaying: [[dictionary objectForKey:@"isPlaying"] boolValue]];
