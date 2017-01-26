@@ -7,7 +7,6 @@ module.exports = {
     data.album = !isUndefined(data.album) ? data.album : '';
     data.cover = !isUndefined(data.cover) ? data.cover : '';
     data.ticker = !isUndefined(data.ticker) ? data.ticker : '';
-    data.duration = !isUndefined(data.duration) ? data.duration : 0;
     data.elapsed = !isUndefined(data.elapsed) ? data.elapsed : 0;
     data.isPlaying = !isUndefined(data.isPlaying) ? data.isPlaying : true;
     data.hasPrev = !isUndefined(data.hasPrev) ? data.hasPrev : true;
