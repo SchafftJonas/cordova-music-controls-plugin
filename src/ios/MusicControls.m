@@ -36,6 +36,14 @@
             [updatedNowPlayingInfo setObject:mediaItemArtwork forKey:MPMediaItemPropertyArtwork];
         }
         
+        
+        NSLog(@"#### now playing: ####");
+        NSLog(@"Artist: %@",artist);
+        NSLog(@"Duration: %@",duration);
+        NSLog(@"Elapsed: %@",elapsed);
+        NSLog(@"PlaybackRate: %@",playbackRate);
+        
+        
         [updatedNowPlayingInfo setObject:[musicControlsInfo artist] forKey:MPMediaItemPropertyArtist];
         [updatedNowPlayingInfo setObject:[musicControlsInfo track] forKey:MPMediaItemPropertyTitle];
         [updatedNowPlayingInfo setObject:[musicControlsInfo album] forKey:MPMediaItemPropertyAlbumTitle];
