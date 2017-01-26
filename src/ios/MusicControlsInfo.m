@@ -1,6 +1,6 @@
- //
+//
 //  MusicControlsInfo.m
-//  
+//
 //
 //  Created by Juan Gonzalez on 12/17/16.
 //
@@ -18,12 +18,12 @@
         [self setAlbum: [dictionary objectForKey:@"album"]];
         [self setTicker: [dictionary objectForKey:@"ticker"]];
         [self setCover: [dictionary objectForKey:@"cover"]];
-        [self setDuration: 30];
+        [self setDuration: (int)[dictionary objectForKey:@"duration"]];
         
-        NSLog(@"Thattt: %@",[dictionary objectForKey:@"elapsed"]);
-         NSLog(@"Thattt Int: %@",[[dictionary objectForKey:@"elapsed"] integerValue]);
+        NSLog(@"Thattt: %@",[dictionary objectForKey:@"duration"]);
+        NSLog(@"Thattt Int: %d",(int)[dictionary objectForKey:@"duration"]);
         
-        [self setElapsed: [[dictionary objectForKey:@"elapsed"] integerValue]];
+        [self setElapsed: (int)[dictionary objectForKey:@"elapsed"]];
         [self setIsPlaying: [[dictionary objectForKey:@"isPlaying"] boolValue]];
         [self setHasPrev: [[dictionary objectForKey:@"hasPrev"] boolValue]];
         [self setHasNext: [[dictionary objectForKey:@"hasNext"] boolValue]];
