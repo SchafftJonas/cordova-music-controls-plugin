@@ -23,7 +23,7 @@
         NSLog(@"Thattt: %@",[dictionary objectForKey:@"duration"]);
          NSLog(@"Thattt Int: %li",[[dictionary objectForKey:@"duration"] integerValue]);
         
-        [self setElapsed: (int)[dictionary objectForKey:@"elapsed"]];
+        [self setElapsed: (int)[dictionary objectForKey:@"elapsed"] integerValue]];
         [self setIsPlaying: [[dictionary objectForKey:@"isPlaying"] boolValue]];
         [self setHasPrev: [[dictionary objectForKey:@"hasPrev"] boolValue]];
         [self setHasNext: [[dictionary objectForKey:@"hasNext"] boolValue]];
