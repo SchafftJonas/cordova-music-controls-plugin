@@ -44,27 +44,15 @@
        // NSLog(@"PlaybackRate: %@",playbackRate);
         
         
-        MPRemoteCommandCenter * cc = [MPRemoteCommandCenter sharedCommandCenter];
+        MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
         
+        commandCenter.previousTrackCommand.enabled = YES;
         
-        if(hasNext){
-        [cc.nextTrackCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
-            return MPRemoteCommandHandlerStatusSuccess;
-        }];
-        }
-        if(hasPrev){
-        [cc.previousTrackCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
-            return MPRemoteCommandHandlerStatusSuccess;
-        }];
-        }
+        commandCenter.playCommand.enabled = YES;
         
-        [cc.playCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
-            return MPRemoteCommandHandlerStatusSuccess;
-        }];
+        commandCenter.pauseCommand.enabled = YES;
         
-        [cc.pauseCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
-            return MPRemoteCommandHandlerStatusSuccess;
-        }];
+        commandCenter.nextTrackCommand.enabled = YES;
         
         
         [updatedNowPlayingInfo setObject:[musicControlsInfo artist] forKey:MPMediaItemPropertyArtist];
