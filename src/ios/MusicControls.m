@@ -13,7 +13,7 @@
 
 - (void) create: (CDVInvokedUrlCommand *) command {
     
-    NSLog(@"create MusicControls Test 2");
+    NSLog(@"create MusicControls Test 3");
     
     NSDictionary * musicControlsInfoDict = [command.arguments objectAtIndex:0];
     MusicControlsInfo * musicControlsInfo = [[MusicControlsInfo alloc] initWithDictionary:musicControlsInfoDict];
@@ -46,8 +46,8 @@
         NSLog(@"Rate: %@",playbackRate);
         NSLog(@"Duration: %@",duration);
         NSLog(@"Elapsed: %@",elapsed);
-        NSLog(@"hasPrev: %@",[musicControlsInfo hasPrev]);
-        NSLog(@"hasNext: %@",[musicControlsInfo hasNext]);
+        NSLog(@"hasPrev: %d",[musicControlsInfo hasPrev]);
+        NSLog(@"hasNext: %d",[musicControlsInfo hasNext]);
         NSLog(@"#### end ####");
         
         
