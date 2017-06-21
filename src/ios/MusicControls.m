@@ -53,11 +53,6 @@
         
         MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
         
-        [commandCenter.pauseCommand removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-        [commandCenter.previousTrackCommand removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-        [ommandCenter.nextTrackCommand removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-        [commandCenter.playCommand removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-        
         commandCenter.previousTrackCommand.enabled = [musicControlsInfo hasPrev];
     
         commandCenter.nextTrackCommand.enabled = [musicControlsInfo hasNext];
@@ -66,8 +61,8 @@
         
         [commandCenter.nextTrackCommand addTarget:self action:@selector(eventfired)];
         
-        commandCenter.playCommand.enabled = ![musicControlsInfo isPlaying];
-        commandCenter.pauseCommand.enabled = [musicControlsInfo isPlaying];
+        commandCenter.playCommand.enabled = YES;
+        commandCenter.pauseCommand.enabled = YES;
         
         [commandCenter.playCommand addTarget:self action:@selector(eventfired)];
         
