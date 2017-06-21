@@ -13,7 +13,7 @@
 
 - (void) create: (CDVInvokedUrlCommand *) command {
     
-    NSLog(@"create MusicControls Test 5");
+    NSLog(@"create MusicControls Test 6");
     
     NSDictionary * musicControlsInfoDict = [command.arguments objectAtIndex:0];
     MusicControlsInfo * musicControlsInfo = [[MusicControlsInfo alloc] initWithDictionary:musicControlsInfoDict];
@@ -53,21 +53,25 @@
         
         MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
         
+        [commandCenter.pauseCommand removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+        [commandCenter.previousTrackCommand removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+        [ommandCenter.nextTrackCommand removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+        [commandCenter.playCommand removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+        
         commandCenter.previousTrackCommand.enabled = [musicControlsInfo hasPrev];
     
         commandCenter.nextTrackCommand.enabled = [musicControlsInfo hasNext];
         
-        [commandCenter.previousTrackCommand addTarget:self action:@selector(prevSounds)];
+        [commandCenter.previousTrackCommand addTarget:self action:@selector(eventfired)];
         
-        [commandCenter.nextTrackCommand addTarget:self action:@selector(nextSounds)];
+        [commandCenter.nextTrackCommand addTarget:self action:@selector(eventfired)];
         
         commandCenter.playCommand.enabled = ![musicControlsInfo isPlaying];
         commandCenter.pauseCommand.enabled = [musicControlsInfo isPlaying];
         
-        [commandCenter.playCommand addTarget:self action:@selector(prevSounds)];
+        [commandCenter.playCommand addTarget:self action:@selector(eventfired)];
         
-        [commandCenter.pauseCommand addTarget:self action:@selector(nextSounds)];
-        
+        [commandCenter.pauseCommand addTarget:self action:@selector(eventfired)];
         
         [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
         
@@ -85,13 +89,8 @@
     }];
 }
 
-
-- (void) prevSounds{
-   
-}
-
-- (void) nextSounds{
-    
+- (void) eventfired{
+    NSLog(@"#### event fired ####");
 }
 
 - (void) updateIsPlaying: (CDVInvokedUrlCommand *) command {
