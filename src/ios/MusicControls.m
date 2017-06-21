@@ -13,7 +13,7 @@
 
 - (void) create: (CDVInvokedUrlCommand *) command {
     
-    NSLog(@"create MusicControls Test 5");
+    NSLog(@"create MusicControls Test 9");
     
     NSDictionary * musicControlsInfoDict = [command.arguments objectAtIndex:0];
     MusicControlsInfo * musicControlsInfo = [[MusicControlsInfo alloc] initWithDictionary:musicControlsInfoDict];
@@ -50,7 +50,7 @@
         NSLog(@"hasNext: %d",[musicControlsInfo hasNext]);
         
         
-        
+        /*
         MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
         
         commandCenter.previousTrackCommand.enabled = [musicControlsInfo hasPrev];
@@ -67,7 +67,7 @@
         [commandCenter.playCommand addTarget:self action:@selector(prevSounds)];
         
         [commandCenter.pauseCommand addTarget:self action:@selector(nextSounds)];
-        
+        */
         
         [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
         
