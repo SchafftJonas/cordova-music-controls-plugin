@@ -26,6 +26,9 @@
 - (void) handleMusicControlsNotification:(NSNotification *) notification;
 - (void) registerMusicControlsEventListener;
 - (void) deregisterMusicControlsEventListener;
+- (void) prevSounds;
+
+- (void) nextSounds;
 
 @end
 

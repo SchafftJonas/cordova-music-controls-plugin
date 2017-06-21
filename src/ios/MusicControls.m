@@ -13,7 +13,7 @@
 
 - (void) create: (CDVInvokedUrlCommand *) command {
     
-    NSLog(@"create MusicControls Test 3");
+    NSLog(@"create MusicControls Test 4");
     
     NSDictionary * musicControlsInfoDict = [command.arguments objectAtIndex:0];
     MusicControlsInfo * musicControlsInfo = [[MusicControlsInfo alloc] initWithDictionary:musicControlsInfoDict];
@@ -48,7 +48,7 @@
         NSLog(@"Elapsed: %@",elapsed);
         NSLog(@"hasPrev: %d",[musicControlsInfo hasPrev]);
         NSLog(@"hasNext: %d",[musicControlsInfo hasNext]);
-        NSLog(@"#### end ####");
+        
         
         
         MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
@@ -57,7 +57,12 @@
     
         commandCenter.nextTrackCommand.enabled = [musicControlsInfo hasNext];
         
+        [commandCenter.previousTrackCommand addTarget:self action:@selector(prevSounds)];
         
+        [commandCenter.nextTrackCommand addTarget:self action:@selector(nextSounds)];
+        
+        
+        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
         
         [updatedNowPlayingInfo setObject:[musicControlsInfo artist] forKey:MPMediaItemPropertyArtist];
         [updatedNowPlayingInfo setObject:[musicControlsInfo track] forKey:MPMediaItemPropertyTitle];
@@ -68,7 +73,18 @@
        
         
         nowPlayingInfoCenter.nowPlayingInfo = updatedNowPlayingInfo;
+         NSLog(@"#### end ####");
+       
     }];
+}
+
+
+- (void) prevSounds{
+     NSLog(@"#### prevSound ####");
+}
+
+- (void) nextSounds{
+    NSLog(@"#### nextSound ####");
 }
 
 - (void) updateIsPlaying: (CDVInvokedUrlCommand *) command {
