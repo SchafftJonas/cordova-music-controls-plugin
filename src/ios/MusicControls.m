@@ -44,12 +44,36 @@
        // NSLog(@"PlaybackRate: %@",playbackRate);
         
         
+        MPRemoteCommandCenter * cc = [MPRemoteCommandCenter sharedCommandCenter];
+        
+        
+        if(hasNext){
+        [cc.nextTrackCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+            return MPRemoteCommandHandlerStatusSuccess;
+        }];
+        }
+        if(hasPrev){
+        [cc.previousTrackCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+            return MPRemoteCommandHandlerStatusSuccess;
+        }];
+        }
+        
+        [cc.playCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+            return MPRemoteCommandHandlerStatusSuccess;
+        }];
+        
+        [cc.pauseCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+            return MPRemoteCommandHandlerStatusSuccess;
+        }];
+        
+        
         [updatedNowPlayingInfo setObject:[musicControlsInfo artist] forKey:MPMediaItemPropertyArtist];
         [updatedNowPlayingInfo setObject:[musicControlsInfo track] forKey:MPMediaItemPropertyTitle];
         [updatedNowPlayingInfo setObject:[musicControlsInfo album] forKey:MPMediaItemPropertyAlbumTitle];
         [updatedNowPlayingInfo setObject:duration forKey:MPMediaItemPropertyPlaybackDuration];
         [updatedNowPlayingInfo setObject:elapsed forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
         [updatedNowPlayingInfo setObject:playbackRate forKey:MPNowPlayingInfoPropertyPlaybackRate];
+       
         
         nowPlayingInfoCenter.nowPlayingInfo = updatedNowPlayingInfo;
     }];
