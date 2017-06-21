@@ -13,7 +13,7 @@
 
 - (void) create: (CDVInvokedUrlCommand *) command {
     
-    NSLog(@"create MusicControls2");
+    NSLog(@"create MusicControls");
     
     NSDictionary * musicControlsInfoDict = [command.arguments objectAtIndex:0];
     MusicControlsInfo * musicControlsInfo = [[MusicControlsInfo alloc] initWithDictionary:musicControlsInfoDict];
