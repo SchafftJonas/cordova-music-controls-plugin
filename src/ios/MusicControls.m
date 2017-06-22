@@ -13,7 +13,7 @@
 
 - (void) create: (CDVInvokedUrlCommand *) command {
   
-    NSLog(@"create MusicControls Test 21");
+    NSLog(@"create MusicControls");
     
     NSDictionary * musicControlsInfoDict = [command.arguments objectAtIndex:0];
     MusicControlsInfo * musicControlsInfo = [[MusicControlsInfo alloc] initWithDictionary:musicControlsInfoDict];
@@ -38,7 +38,7 @@
         
         
         NSLog(@"#### now playing ####");
-       // NSLog(@"Artist: %@",[musicControlsInfo artist];
+      
         NSLog(@"Artist: %@",[musicControlsInfo artist]);
         NSLog(@"Track: %@",[musicControlsInfo track]);
         NSLog(@"Album: %@",[musicControlsInfo album]);
@@ -49,24 +49,22 @@
         NSLog(@"hasPrev: %d",[musicControlsInfo hasPrev]);
         NSLog(@"hasNext: %d",[musicControlsInfo hasNext]);
         
-        
-        
         MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
         
         commandCenter.previousTrackCommand.enabled = [musicControlsInfo hasPrev];
     
         commandCenter.nextTrackCommand.enabled = [musicControlsInfo hasNext];
         
-        [commandCenter.previousTrackCommand addTarget:self action:@selector(prevSounds)];
+        [commandCenter.previousTrackCommand addTarget:self action:@selector(notiAction)];
     
-        [commandCenter.nextTrackCommand addTarget:self action:@selector(nextSounds)];
+        [commandCenter.nextTrackCommand addTarget:self action:@selector(notiAction)];
         
         commandCenter.playCommand.enabled = ![musicControlsInfo isPlaying];
         commandCenter.pauseCommand.enabled = [musicControlsInfo isPlaying];
         
-        [commandCenter.playCommand addTarget:self action:@selector(prevSounds)];
+        [commandCenter.playCommand addTarget:self action:@selector(notiAction)];
         
-        [commandCenter.pauseCommand addTarget:self action:@selector(nextSounds)];
+        [commandCenter.pauseCommand addTarget:self action:@selector(notiAction)];
         
         
         
@@ -87,12 +85,8 @@
 }
 
 
-- (void) prevSounds{
-    NSLog(@"prev");
-}
-
-- (void) nextSounds{
-     NSLog(@"next");
+- (void) notiAction{
+   
 }
 
 - (void) updateIsPlaying: (CDVInvokedUrlCommand *) command {
