@@ -12,12 +12,8 @@
 @implementation MusicControls
 
 - (void) create: (CDVInvokedUrlCommand *) command {
-    
-    
-    [self deregisterMusicControlsEventListener];
-    [self registerMusicControlsEventListener];
-    
-    NSLog(@"create MusicControls Test 19");
+  
+    NSLog(@"create MusicControls Test 21");
     
     NSDictionary * musicControlsInfoDict = [command.arguments objectAtIndex:0];
     MusicControlsInfo * musicControlsInfo = [[MusicControlsInfo alloc] initWithDictionary:musicControlsInfoDict];
