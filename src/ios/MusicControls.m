@@ -17,7 +17,7 @@
     [self deregisterMusicControlsEventListener];
     [self registerMusicControlsEventListener];
     
-    NSLog(@"create MusicControls Test 17");
+    NSLog(@"create MusicControls Test 18");
     
     NSDictionary * musicControlsInfoDict = [command.arguments objectAtIndex:0];
     MusicControlsInfo * musicControlsInfo = [[MusicControlsInfo alloc] initWithDictionary:musicControlsInfoDict];
@@ -170,9 +170,9 @@
     
     NSLog(@"Event Registered");
     
-    if ([self latestEventCallbackId] == nil) {
+/*    if ([self latestEventCallbackId] == nil) {
         return;
-    }
+    }*/
     
     if (receivedEvent.type == UIEventTypeRemoteControl) {
         NSString * action;
