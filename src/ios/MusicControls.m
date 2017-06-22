@@ -13,7 +13,7 @@
 
 - (void) create: (CDVInvokedUrlCommand *) command {
     
-    NSLog(@"create MusicControls Test 14");
+    NSLog(@"create MusicControls Test 15");
     
     NSDictionary * musicControlsInfoDict = [command.arguments objectAtIndex:0];
     MusicControlsInfo * musicControlsInfo = [[MusicControlsInfo alloc] initWithDictionary:musicControlsInfoDict];
@@ -81,9 +81,6 @@
        
         
         nowPlayingInfoCenter.nowPlayingInfo = updatedNowPlayingInfo;
-        
-        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-        
         
          NSLog(@"#### end ####");
        
