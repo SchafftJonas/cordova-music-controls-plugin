@@ -69,8 +69,15 @@ public class MusicControlsNotification {
 				// Remote image
 				this.bitmapCover = getBitmapFromURL(coverURL);
 			else{
-				// Local image
-				this.bitmapCover = getBitmapFromLocal(coverURL);
+				try{
+					// base64 encoded image
+					byte[] decodedString = Base64.decode(coverURL, Base64.DEFAULT);
+					this.bitmapCover =  BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+				}
+				catch (Exception ex) {
+					// Local image
+					this.bitmapCover = getBitmapFromLocal(coverURL);
+				}
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
