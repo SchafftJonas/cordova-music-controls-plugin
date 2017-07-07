@@ -10,7 +10,7 @@ import java.io.File;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Random;
-import java.util.Base64;
+import android.util.Base64;
 
 import android.util.Log;
 import android.R;
