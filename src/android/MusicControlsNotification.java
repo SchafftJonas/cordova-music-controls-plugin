@@ -172,6 +172,7 @@ public class MusicControlsNotification {
 		Intent resultIntent = new Intent(context, cordovaActivity.getClass());
 		resultIntent.setAction(Intent.ACTION_MAIN);
 		resultIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+		resultIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP); 
 		PendingIntent resultPendingIntent = PendingIntent.getActivity(context, 0, resultIntent, 0);
 		builder.setContentIntent(resultPendingIntent);
 
