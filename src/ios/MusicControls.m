@@ -114,6 +114,10 @@
     [self registerMusicControlsEventListener];
 }
 
+- (void) updateCallback: (CDVInvokedUrlCommand *) command {
+    [self setLatestEventCallbackId:command.callbackId];
+}
+
 - (MPMediaItemArtwork *) createCoverArtwork: (NSString *) coverUri {
     UIImage * coverImage = nil;
     
