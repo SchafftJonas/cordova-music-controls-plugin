@@ -131,6 +131,13 @@ public class MusicControls extends CordovaPlugin {
 				}
 			});
 		}
+		else if (action.equals("updateCallback")) {
+			this.cordova.getThreadPool().execute(new Runnable() {
+				public void run() {
+					mMessageReceiver.setCallback(callbackContext);
+				}
+			});
+		}
 		return true;
 	}
 
