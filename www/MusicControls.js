@@ -37,8 +37,6 @@ module.exports = {
   },
   receiveCallbackFromNative: function (messageFromNative) {
     module.exports.updateCallback(messageFromNative);
-    cordova.exec(module.exports.receiveCallbackFromNative, function (res) {
-    }, 'MusicControls', 'watch', []);
   }
 
 };
