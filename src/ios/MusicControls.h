@@ -21,12 +21,14 @@
 - (void) updateIsPlaying: (CDVInvokedUrlCommand *) command;
 - (void) destroy: (CDVInvokedUrlCommand *) command;
 - (void) watch: (CDVInvokedUrlCommand *) command;
+- (void) updateCallback: (CDVInvokedUrlCommand *) command;
 - (MPMediaItemArtwork *) createCoverArtwork: (NSString *) coverUri;
 - (bool) isCoverImageValid: (UIImage *) image;
 - (void) handleMusicControlsNotification:(NSNotification *) notification;
 - (void) registerMusicControlsEventListener;
 - (void) deregisterMusicControlsEventListener;
 - (void) eventfired;
+
 
 @end
 
