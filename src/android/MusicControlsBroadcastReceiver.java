@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.content.BroadcastReceiver;
 import android.view.KeyEvent;
+import android.os.Process;
 
 public class MusicControlsBroadcastReceiver extends BroadcastReceiver {
 	private CallbackContext cb;
@@ -66,6 +67,7 @@ public class MusicControlsBroadcastReceiver extends BroadcastReceiver {
 				this.cb.success("music-controls-destroy");
 				this.cb = null;
 				this.musicControls.destroyPlayerNotification();
+				Process.killProcess(Process.myPid());
 			} else {
 				this.cb.success(message);
 				this.cb = null;
