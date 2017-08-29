@@ -206,12 +206,12 @@ public class MusicControlsNotification {
 			builder.addAction(android.R.drawable.ic_media_ff, "", nextPendingIntent);
 		}
 		/* Close */
-		if (infos.hasClose){
+		//if (infos.hasClose){
 			nbControls++;
 			Intent destroyIntent = new Intent("music-controls-destroy");
 			PendingIntent destroyPendingIntent = PendingIntent.getBroadcast(context, 1, destroyIntent, 0);
 			builder.addAction(android.R.drawable.ic_menu_close_clear_cancel, "", destroyPendingIntent);
-		}
+		//}
 
 		//If 5.0 >= use MediaStyle
 		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP){
